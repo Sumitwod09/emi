@@ -1,14 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 
+function RegisteredBanner() {
+  const searchParams = useSearchParams()
+  if (searchParams.get('registered') !== '1') return null
+  return (
+    <div style={{
+      background: 'var(--active-bg)', border: '1px solid var(--active-text)',
+      borderRadius: 6, padding: '10px 12px', marginBottom: 16, fontSize: 13,
+      color: 'var(--active-text)',
+    }}>
+      Account created! Sign in below.
+    </div>
+  )
+}
+
 export default function LoginPage() {
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const justRegistered = searchParams.get('registered') === '1'
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -48,15 +60,9 @@ export default function LoginPage() {
         Sign in to your store account
       </p>
 
-      {justRegistered && (
-        <div style={{
-          background: 'var(--active-bg)', border: '1px solid var(--active-text)',
-          borderRadius: 6, padding: '10px 12px', marginBottom: 16, fontSize: 13,
-          color: 'var(--active-text)',
-        }}>
-          Account created! Sign in below.
-        </div>
-      )}
+      <Suspense>
+        <RegisteredBanner />
+      </Suspense>
 
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 16 }}>
