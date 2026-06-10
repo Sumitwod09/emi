@@ -1,0 +1,43 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# ── web ──────────────────────────────────────────────
+web/node_modules/
+web/.next/
+web/out/
+web/.vercel/
+web/.env
+web/.env.local
+web/.env*.local
+
+# ── admin-app ────────────────────────────────────────
+admin-app/node_modules/
+admin-app/.expo/
+admin-app/dist/
+admin-app/web-build/
+admin-app/.env
+admin-app/.env.local
+admin-app/.env*.local
+
+# ── customer-app ─────────────────────────────────────
+customer-app/.jdks/
+customer-app/.gradle/
+customer-app/build/
+customer-app/app/build/
+customer-app/local.properties
+customer-app/.cxx/
+customer-app/**/*.orig.*
+customer-app/**/*.jks
+customer-app/**/*.p12
+customer-app/**/*.key
+customer-app/**/*.mobileprovision

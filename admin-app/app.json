@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "EMI Manager",
+    "slug": "emi-manager",
+    "scheme": "emimanager",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.varcheck.emimanager"
+    },
+    "android": {
+      "package": "com.varcheck.emimanager",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#D32F2F",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      },
+      "permissions": [
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.VIBRATE"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EMI Lock</string>
+    <string name="device_admin_label">EMI Lock Device Admin</string>
+    <string name="device_admin_description">Required to enforce EMI payment compliance and manage device access.</string>
+</resources>

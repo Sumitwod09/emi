@@ -1,0 +1,3 @@
+{
+  "_comment": "v2.0: Firebase removed. No google-services.json needed. Lock/unlock delivered via Supabase Realtime. This file can be deleted."
+}
