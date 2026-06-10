@@ -27,7 +27,8 @@ export async function GET() {
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
-  const enriched = (devices ?? []).map((d) => {
+  type DeviceRow = { emi_plans?: Array<{ emi_payments?: Array<{ status: string; amount_due: number; due_date: string }> }> } & Record<string, unknown>
+  const enriched = (devices ?? []).map((d: DeviceRow) => {
     const payments = d.emi_plans?.[0]?.emi_payments ?? []
     const missedOrPending = payments.filter(
       (p: { status: string }) => p.status === 'missed' || p.status === 'pending'

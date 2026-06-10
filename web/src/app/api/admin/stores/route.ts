@@ -16,7 +16,7 @@ export async function GET() {
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
   // Attach user and device counts
-  const enriched = await Promise.all((stores ?? []).map(async (store) => {
+  const enriched = await Promise.all((stores ?? []).map(async (store: { id: string; name: string; phone: string | null; address: string | null; created_at: string }) => {
     const [{ count: userCount }, { count: deviceCount }] = await Promise.all([
       supabase.from('store_users').select('id', { count: 'exact', head: true }).eq('store_id', store.id),
       supabase.from('devices').select('id', { count: 'exact', head: true }).eq('store_id', store.id).neq('status', 'deregistered'),

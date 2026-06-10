@@ -28,7 +28,7 @@ export async function DELETE(
 
   // Also delete the Supabase Auth user
   const { data: authUsers } = await supabase.auth.admin.listUsers()
-  const authUser = authUsers?.users?.find(u => u.email === storeUser.email)
+  const authUser = authUsers?.users?.find((u: { email?: string; id: string }) => u.email === storeUser.email)
   if (authUser) await supabase.auth.admin.deleteUser(authUser.id)
 
   return NextResponse.json({ ok: true })
